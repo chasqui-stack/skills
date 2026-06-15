@@ -47,12 +47,16 @@ in `core/` only.
 
 Evaluate in order, stop at the first match:
 
-1. **Scaffolding a new project, running the CLI, or generating a module** →
+1. **Scaffolding a new project or running the CLI** (`chasqui new`, the wizard) →
    load **`chasqui-cli`**.
 2. **Adding a new channel** (a messaging platform that doesn't exist yet) →
    load **`chasqui-create-channel`**.
-3. **Anything else** (a business module, a tool, deploy) → read the architecture
-   doc above; dedicated skills for these are on the roadmap.
+3. **Giving the agent a new capability / tool** (a Tool Module) →
+   load **`chasqui-create-module`**.
+4. **Making a non-obvious architectural decision** (record it) →
+   load **`chasqui-write-adr`**.
+5. **Deploying or operating the stack on a server** (Kamal) →
+   load **`chasqui-deploy`**.
 
 If you're unsure what Chasqui is or how the pieces fit, the architecture doc is
 always the right next read.

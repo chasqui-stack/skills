@@ -18,8 +18,11 @@ for the design.
 | Skill | Use it when |
 |-------|-------------|
 | **chasqui-primer** | First — orients you (philosophy, the 3 services, the contract) and routes you to the right skill. |
-| **chasqui-cli** | Scaffolding or extending a stack with the CLI (`uvx chasqui new`, the wizard, `chasqui generate module`). |
+| **chasqui-cli** | Scaffolding a stack with the CLI (`uvx chasqui new`, the wizard, `chasqui generate module`). |
 | **chasqui-create-channel** | Adding a new channel gateway (a messaging platform that doesn't exist yet). |
+| **chasqui-create-module** | Giving the agent a new capability — a tool / Tool Module (tools, tables, admin config). |
+| **chasqui-write-adr** | Recording a non-obvious architectural decision the Chasqui way (docs-as-code ADR). |
+| **chasqui-deploy** | Deploying or operating the stack on a server (Kamal 2). |
 
 ## Install
 
