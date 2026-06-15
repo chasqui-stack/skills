@@ -1,0 +1,13 @@
+{
+  "name": "chasqui-skills",
+  "version": "0.1.0",
+  "description": "Agent Skills for building & extending Chasqui stacks",
+  "author": {
+    "name": "William Wong Garay",
+    "url": "https://github.com/chasqui-stack"
+  },
+  "repository": "https://github.com/chasqui-stack/skills",
+  "license": "Apache-2.0",
+  "keywords": ["chasqui", "whatsapp", "telegram", "ai-agent", "langgraph", "agent-skills"],
+  "skills": "./config/skills/"
+}

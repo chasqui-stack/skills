@@ -1,0 +1,18 @@
+{
+  "name": "chasqui-skills",
+  "owner": {
+    "name": "Chasqui",
+    "email": "willywg@gmail.com"
+  },
+  "metadata": {
+    "description": "Agent Skills for building & extending Chasqui stacks"
+  },
+  "plugins": [
+    {
+      "name": "chasqui-skills",
+      "source": "./",
+      "description": "Teach any skills-compatible agent the Chasqui omakase conventions: scaffold a stack, add a channel, build a module.",
+      "homepage": "https://github.com/chasqui-stack/skills"
+    }
+  ]
+}
