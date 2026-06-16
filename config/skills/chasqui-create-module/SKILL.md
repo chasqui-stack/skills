@@ -13,11 +13,11 @@ the panel (`/tools`); no deploy.
 
 > Source of truth — read before writing:
 > - **How to write a module** (scaffold, contract, tool rules, tables, admin, tests):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/MODULES.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/MODULES.md
 > - **Architecture §8** (Tool Registry — §8.1 how a tool is defined, §8.2 the
 >   module contract, §8.3 the reusable archetype):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/ARCHITECTURE.md
-> - **Worked example:** https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/design/module-example-commercial-locations.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/ARCHITECTURE.md
+> - **Worked example:** https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/design/module-example-commercial-locations.md
 
 ## Scaffold
 

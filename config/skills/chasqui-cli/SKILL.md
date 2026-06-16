@@ -13,7 +13,7 @@ needed) or install it. New project creation and code generators à la
 Authoritative reference (read for the release ceremony, version pinning, and the
 generator contract):
 → https://raw.githubusercontent.com/chasqui-stack/cli/main/AGENTS.md
-→ Stack architecture (what gets scaffolded): https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/ARCHITECTURE.md
+→ Stack architecture (what gets scaffolded): https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/ARCHITECTURE.md
 
 ## Install / version
 
@@ -43,6 +43,13 @@ Options:
 | `--skip-provision` | Write files only; no uv/npm/createdb/migrate. |
 | `--ref <tag\|branch>` | Scaffold a specific stack tag/branch instead of the pinned default (dev). |
 | `--source <path>` | Copy a local stack checkout instead of downloading (dev). |
+
+The wizard also offers optional **Extras** (all `.env`-switchable later): media
+storage (S3), handoff notifications (webhook/SMTP), Kamal deploy placeholders,
+and **speech-to-text for voice notes** (ADR-010) — when picked it writes the
+`STT_*` block to `core/.env` (Groq `whisper-large-v3-turbo` default, native
+OGG/Opus; a separate `STT_API_KEY`) so an LLM without native audio can answer
+voice notes. Unset = the agent asks the user to type it.
 
 After scaffolding, extend the stack with your agent — see the **`chasqui-create-channel`**
 skill for adding a channel, and `chasqui generate module` below for tool modules.

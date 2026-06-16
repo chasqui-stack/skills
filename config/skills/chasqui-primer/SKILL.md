@@ -13,14 +13,14 @@ docs, which you fetch on demand (links below).
 ## The one rule: read the canonical docs, don't guess
 
 Chasqui's design lives in versioned docs, pinned to the stack release these
-skills target (**v0.2.4**). When a task needs a detail, fetch the doc — do not
+skills target (**v0.2.5**). When a task needs a detail, fetch the doc — do not
 reproduce it from memory:
 
 - **Architecture & canonical contract** (read this first for anything non-trivial):
-  https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/ARCHITECTURE.md
+  https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/ARCHITECTURE.md
   (§5 canonical message contract, §5.1 outbound `POST /send`, §8.2 module contract)
 - **Decisions (ADRs):**
-  https://github.com/chasqui-stack/chasqui/tree/v0.2.4/docs/design
+  https://github.com/chasqui-stack/chasqui/tree/v0.2.5/docs/design
 
 ## Philosophy — omakase, the Rails way
 

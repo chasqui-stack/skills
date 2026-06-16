@@ -11,7 +11,7 @@ order**, because of health checks and CORS.
 
 > Source of truth — read it; it has the exact per-service config edits and the
 > full prerequisites:
-> https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/DEPLOY.md
+> https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/DEPLOY.md
 
 ## Prerequisites
 

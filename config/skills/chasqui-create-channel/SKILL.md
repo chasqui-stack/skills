@@ -12,23 +12,23 @@ sees canonical messages. Adding a channel is therefore *almost entirely* gateway
 work plus one line of core config.
 
 > Read these before writing anything — they are the source of truth, pinned to
-> this stack release (v0.2.4):
+> this stack release (v0.2.5):
 > - **Canonical contract** (inbound `/ingest` shape, media as base64 data URIs):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/ARCHITECTURE.md  (§5)
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/ARCHITECTURE.md  (§5)
 > - **Outbound seam** (`POST /send`, conversation mode / human handoff):
 >   §5.1 of the same doc + ADR-004:
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/design/adr-004-conversation-mode-outbound-send.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/design/adr-004-conversation-mode-outbound-send.md
 > - **Worked example decision** (Telegram, library + webhook integration):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.4/docs/design/adr-006-telegram-channel.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.2.5/docs/design/adr-006-telegram-channel.md
 
 ## The two worked examples to copy from
 
 The Telegram gateway (sprint 9) was ~40% copied from WhatsApp — that overlap *is*
 the channel pattern. Study one as your template:
 
-- Telegram: https://github.com/chasqui-stack/telegram (tag `v0.2.4`) — `app/main.py`,
+- Telegram: https://github.com/chasqui-stack/telegram (tag `v0.2.5`) — `app/main.py`,
   `app/handlers/`, `app/services/`, `app/core/`.
-- WhatsApp: https://github.com/chasqui-stack/whatsapp (tag `v0.2.4`).
+- WhatsApp: https://github.com/chasqui-stack/whatsapp (tag `v0.2.5`).
 
 ## Procedure
 
