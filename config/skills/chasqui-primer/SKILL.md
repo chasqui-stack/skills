@@ -6,9 +6,9 @@ description: "INVOKE FIRST for any work on a Chasqui stack — building, extendi
 # Chasqui — primer & router
 
 Chasqui is a **base development stack for building custom AI agents on messaging
-channels** (WhatsApp, Telegram, …). This skill orients you and points you to the
-next skill. It is a router, not a manual — the source of truth is the versioned
-docs, which you fetch on demand (links below).
+channels** (WhatsApp, Telegram, an embeddable web widget, …). This skill orients
+you and points you to the next skill. It is a router, not a manual — the source
+of truth is the versioned docs, which you fetch on demand (links below).
 
 ## The one rule: read the canonical docs, don't guess
 
@@ -36,7 +36,7 @@ conventions; don't invent parallel ones.
 |---------|-------|------|
 | **core** | FastAPI + LangGraph + Postgres/pgvector | The heart: ingest, orchestrator, memory, RAG, tools, auth |
 | **admin** | React 19 + Vite + Tailwind + shadcn/ui | Operator panel |
-| **channel gateways** | FastAPI + platform SDK (PyWa, PTB) | Stateless adapters (WhatsApp, Telegram) |
+| **channel gateways** | FastAPI + platform SDK (PyWa, PTB); web is a Node monolith (Express + Preact, ADR-011) | Stateless adapters (WhatsApp, Telegram, web widget) |
 
 The golden rule: **services talk only through the canonical message contract.
 The core never knows a channel exists.** A gateway turns platform events into a

@@ -34,12 +34,17 @@ Runs: **preflight** checks (uv, node, postgres, …) → an interactive **wizard
 (LLM/embeddings provider, channels, secrets → `.env`s) → **scaffold** (downloads
 the pinned stack) → **provision** (uv/npm install, createdb, migrate).
 
+Channels: `whatsapp` is the default dish; `telegram` and `web` are **opt-in**.
+`web` is the embeddable site widget (ADR-011) — a Node gateway on `:8002`; the
+wizard wires the core's `CHANNEL_WEB_SEND_URL` and the gateway's `.env`
+(`WEB_ALLOWED_ORIGINS`, rate limits, `ERROR_REPLY`/`UNSUPPORTED_REPLY`).
+
 Options:
 
 | Option | Effect |
 |--------|--------|
 | `--defaults` | Skip the wizard — placeholder config, CI-friendly. |
-| `--channels whatsapp,telegram` | Pick channels non-interactively (overrides the wizard; pairs with `--defaults`). |
+| `--channels whatsapp,telegram,web` | Pick channels non-interactively (overrides the wizard; pairs with `--defaults`). |
 | `--skip-provision` | Write files only; no uv/npm/createdb/migrate. |
 | `--ref <tag\|branch>` | Scaffold a specific stack tag/branch instead of the pinned default (dev). |
 | `--source <path>` | Copy a local stack checkout instead of downloading (dev). |
