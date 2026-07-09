@@ -1,6 +1,6 @@
 ---
 name: chasqui-cli
-description: "INVOKE when using the chasqui CLI to scaffold or extend a Chasqui stack: creating a new project (uvx chasqui new), running the setup wizard, pinning a stack version with --ref, or generating a tool module (chasqui generate module). Covers the commands, their options, and the provisioning flow."
+description: "INVOKE when using the chasqui CLI to scaffold or extend a Chasqui stack: creating a new project (uvx chasqui new), running the setup wizard, pinning a stack version with --ref, adding a channel gateway to an existing project (chasqui add channel), or generating a tool module (chasqui generate module). Covers the commands, their options, and the provisioning flow."
 ---
 
 # chasqui CLI
@@ -13,7 +13,7 @@ needed) or install it. New project creation and code generators à la
 Authoritative reference (read for the release ceremony, version pinning, and the
 generator contract):
 → https://raw.githubusercontent.com/chasqui-stack/cli/main/AGENTS.md
-→ Stack architecture (what gets scaffolded): https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.3.0/docs/ARCHITECTURE.md
+→ Stack architecture (what gets scaffolded): https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.4.0/docs/ARCHITECTURE.md
 
 ## Install / version
 
@@ -56,8 +56,31 @@ and **speech-to-text for voice notes** (ADR-010) — when picked it writes the
 OGG/Opus; a separate `STT_API_KEY`) so an LLM without native audio can answer
 voice notes. Unset = the agent asks the user to type it.
 
-After scaffolding, extend the stack with your agent — see the **`chasqui-create-channel`**
-skill for adding a channel, and `chasqui generate module` below for tool modules.
+After scaffolding, extend the stack with your agent — see `chasqui add channel`
+below for the stack's own gateways, the **`chasqui-create-channel`** skill for
+building a custom one, and `chasqui generate module` for tool modules.
+
+## `chasqui add channel <name>` — retrofit a gateway (v0.4.0+)
+
+```bash
+cd my-agent && uvx chasqui add channel web   # or: telegram, whatsapp
+```
+
+Adds one of the stack's channel gateways to an **existing** generated project
+(scaffolded before the channel existed, or skipped in the wizard). Run it from
+the project root (where `core/.env` lives). It:
+
+1. Detects the stack tag the project was scaffolded from (README; `--ref`
+   overrides) and fetches the gateway dir at that tag.
+2. Writes the gateway's `.env`, **reusing the core's `INTERNAL_API_KEY`**
+   (read, never regenerated) and asking only that channel's questions
+   (port, tokens/origins). `--defaults` skips the questions.
+3. Appends `CHANNEL_<CH>_SEND_URL` to `core/.env` (idempotent — refuses to
+   duplicate) and provisions (`uv sync` / `npm install`; `--skip-provision`
+   to opt out).
+
+It never git-commits — it mutates YOUR repo; review and commit. Restart the
+core afterwards so it picks up the new `CHANNEL_<CH>_SEND_URL`.
 
 ## `chasqui generate module <name>` — scaffold a Tool Module
 
