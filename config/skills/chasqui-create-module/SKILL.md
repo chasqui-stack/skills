@@ -13,11 +13,11 @@ the panel (`/tools`); no deploy.
 
 > Source of truth — read before writing:
 > - **How to write a module** (scaffold, contract, tool rules, tables, admin, tests):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.4.0/docs/MODULES.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/MODULES.md
 > - **Architecture §8** (Tool Registry — §8.1 how a tool is defined, §8.2 the
 >   module contract, §8.3 the reusable archetype):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.4.0/docs/ARCHITECTURE.md
-> - **Worked example:** https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.4.0/docs/design/module-example-commercial-locations.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/ARCHITECTURE.md
+> - **Worked example:** https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/design/module-example-commercial-locations.md
 
 ## Scaffold
 
@@ -39,6 +39,9 @@ A module is a package exposing a module-level `module` attribute with:
 - `register_models()` — optional, module-owned SQLModel tables
 - `register_admin_routes(router)` — optional, `/admin/modules/<name>/*`
 - `config_schema()` — optional, admin-editable knobs (a form for free)
+- `system_prompt_fragment(context, query)` — optional (async), one block appended
+  to the system prompt each turn (ADR-012). It costs tokens every turn: make it
+  opt-in via a knob, and frame content as *look-up-able*, never as known
 
 Read MODULES.md §"The contract" for the exact shape; don't reproduce it from
 memory.
@@ -55,6 +58,17 @@ the model, in **English** (the system prompt localizes the user-facing reply).
   the question and calls again) — see the `lead_capture` pattern in MODULES.md.
 - `runtime.context` gives `ctx.session` (AsyncSession), `ctx.contact`,
   `ctx.conversation`, `ctx.config`.
+
+## When your tool resembles an existing one
+
+Shipping a retriever next to `faq_search` / `search_documents` (or any two
+look-alike tools)? Read MODULES.md §"When two tools overlap" (ADR-013): each
+docstring names its own territory **and the sibling's**, results hand over to the
+sibling on a miss (guarded by `registry.has_tool()` + `tool_enabled()`), never
+route from the system prompt, and re-run an eval against the real LLM when you
+touch those strings. Reference implementations: `core/app/modules/faq/` (read
+first) and `core/app/modules/knowledge/` (upload + background processing with a
+status column).
 
 ## After you write it
 

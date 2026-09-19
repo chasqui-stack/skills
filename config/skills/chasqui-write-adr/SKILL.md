@@ -13,9 +13,9 @@ until the docs reflect it.
 > Source of truth — the convention lives in the repo's AGENTS.md, and the ADRs in
 > `docs/design/`:
 > - Conventions (planning, ADRs, end-of-sprint rule):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.4.0/AGENTS.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/AGENTS.md
 > - Existing ADRs (read a recent one as your template):
->   https://github.com/chasqui-stack/chasqui/tree/v0.4.0/docs/design
+>   https://github.com/chasqui-stack/chasqui/tree/v0.5.0/docs/design
 
 ## When an ADR is warranted
 

@@ -13,7 +13,7 @@ needed) or install it. New project creation and code generators à la
 Authoritative reference (read for the release ceremony, version pinning, and the
 generator contract):
 → https://raw.githubusercontent.com/chasqui-stack/cli/main/AGENTS.md
-→ Stack architecture (what gets scaffolded): https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.4.0/docs/ARCHITECTURE.md
+→ Stack architecture (what gets scaffolded): https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/ARCHITECTURE.md
 
 ## Install / version
 
