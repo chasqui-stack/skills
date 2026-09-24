@@ -12,17 +12,17 @@ sees canonical messages. Adding a channel is therefore *almost entirely* gateway
 work plus one line of core config.
 
 > Read these before writing anything — they are the source of truth, pinned to
-> this stack release (v0.5.0):
+> this stack release (v0.5.1):
 > - **Canonical contract** (inbound `/ingest` shape, media as base64 data URIs):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/ARCHITECTURE.md  (§5)
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.1/docs/ARCHITECTURE.md  (§5)
 > - **Outbound seam** (`POST /send`, conversation mode / human handoff):
 >   §5.1 of the same doc + ADR-004:
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/design/adr-004-conversation-mode-outbound-send.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.1/docs/design/adr-004-conversation-mode-outbound-send.md
 > - **Worked example decision** (Telegram, library + webhook integration):
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/design/adr-006-telegram-channel.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.1/docs/design/adr-006-telegram-channel.md
 > - **Second archetype decision** (web: Node monolith, anonymous identity, SSE,
 >   rehydration) — ADR-011:
->   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.0/docs/design/adr-011-web-channel.md
+>   https://raw.githubusercontent.com/chasqui-stack/chasqui/v0.5.1/docs/design/adr-011-web-channel.md
 
 ## Two archetypes — pick one first
 
@@ -32,9 +32,9 @@ the gateway's language), so there are **two** gateway archetypes:
 1. **Python/FastAPI gateway** — the default, for platforms with their own client
    app and a push API. The Telegram gateway (sprint 9) was ~40% copied from
    WhatsApp — that overlap *is* the channel pattern. Study one as your template:
-   - Telegram: https://github.com/chasqui-stack/telegram (tag `v0.5.0`) — `app/main.py`,
+   - Telegram: https://github.com/chasqui-stack/telegram (tag `v0.5.1`) — `app/main.py`,
      `app/handlers/`, `app/services/`, `app/core/`.
-   - WhatsApp: https://github.com/chasqui-stack/whatsapp (tag `v0.5.0`).
+   - WhatsApp: https://github.com/chasqui-stack/whatsapp (tag `v0.5.1`).
 2. **Node monolith** (ADR-011) — when the channel **ships its own client** (no
    third-party app to ride on). One repo, one `npm` toolchain: an Express server
    (relays `/ingest`, receives `/send`, holds the live connection to the client)
